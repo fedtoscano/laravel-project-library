@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("city", 50);
             $table->text("description");
             $table->string("image", 255);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
