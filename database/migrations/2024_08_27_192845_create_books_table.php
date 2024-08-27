@@ -39,7 +39,7 @@ return new class extends Migration
                 ->cascadeOnUpdate();
 
             $table->string('title', 250);
-            $table->longText('description')->nullable();
+            $table->text('description')->nullable();
             $table->string("genre", 40);
             $table->string("language", 30);
             $table->string('cover_img')->nullable();

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50)->unique();
             $table->string("city", 50);
-            $table->longText("description");
+            $table->text("description");
             $table->string("image", 255);
             $table->timestamps();
         });
