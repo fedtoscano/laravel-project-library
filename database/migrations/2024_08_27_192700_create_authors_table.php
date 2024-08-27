@@ -21,7 +21,7 @@ return new class extends Migration
                 ->cascadeOnUpdate();
 
             $table->string("name", 100);
-            $table->string("nationality", 50);
+            $table->string("nationality", 250);
             $table->date('born');
             $table->text("presentation");
             $table->string('image', 255)->nullable();
