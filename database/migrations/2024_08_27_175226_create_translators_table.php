@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('translators', function (Blueprint $table) {
             $table->id();
+            $table->string("name", 100);
+            $table->string("nationality", 50);
+            $table->date('born');
+            $table->text("presentation");
+            $table->string('image', 255)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
