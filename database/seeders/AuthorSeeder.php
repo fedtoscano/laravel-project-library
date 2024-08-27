@@ -24,7 +24,7 @@ class AuthorSeeder extends Seeder
             $data = [
                 "name"=> $faker->unique()->name(),
                 "nationality"=>$faker->country(),
-                "born"=>$faker->dateTimeBetween('1920-01-01', '1990-12-31'),
+                "born"=>$faker->dateTimeBetween('1740-01-01', '1990-12-31'),
                 "presentation"=>$faker->realText(300),
                 "image"=> $faker->imageUrl(),
                 "editor_id"=>$faker->randomElement($editors_id)
