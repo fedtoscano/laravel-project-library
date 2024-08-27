@@ -40,6 +40,7 @@ return new class extends Migration
 
             $table->string('title', 250);
             $table->longText('description')->nullable();
+            $table->string("genre", 40);
             $table->string("language", 30);
             $table->string('cover_img')->nullable();
             $table->bigInteger('isbn')->unique();
