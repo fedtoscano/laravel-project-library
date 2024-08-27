@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('born');
             $table->text("presentation");
             $table->string('image', 255)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
