@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('editors', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 50)->unique();
+            $table->string("city", 50);
+            $table->longText("description");
+            $table->string("image", 255);
             $table->timestamps();
         });
     }
