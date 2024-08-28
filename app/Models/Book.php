@@ -6,6 +6,7 @@ use App\Models\Author;
 use App\Models\Category;
 use App\Models\Editor;
 use App\Models\Translator;
+use App\Models\Loan;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,5 +33,9 @@ class Book extends Model
 
     public function translator(){
         return $this->belongsTo(Translator::class);
+    }
+
+    public function loans(){
+        return $this->hasMany(Loan::class);
     }
 }
