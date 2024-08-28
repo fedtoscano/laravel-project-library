@@ -30,6 +30,20 @@
     </nav>
 
     <div class="sidebar">
+                <!-- Split dropend button -->
+                <div class="btn-group dropend">
+                    <button type="button" class="btn btn-secondary">
+                    Books
+                    </button>
+                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropend</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <!-- Dropdown menu links -->
+                        <li><a href="{{route('admin.books.index')}}">See all books</a></li>
+                        <li>Create New book</li>
+                    </ul>
+                </div>
         <a href="{{ route('admin.books.index') }}">Books</a>
         <a href="{{ route('admin.authors.index') }}">Authors</a>
         <a href="{{ route('admin.categories.index') }}">Categories</a>
