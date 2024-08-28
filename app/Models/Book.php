@@ -18,8 +18,8 @@ class Book extends Model
 
     protected $fillable = ['title', 'description', 'genre', 'language', 'cover_img', 'isbn', 'price', 'pages', 'is_available', 'state'];
 
-    public function author(){
-        return $this->belongsTo(Author::class);
+    public function authors(){
+        return $this->belongsToMany(Author::class);
     }
 
     public function category(){
