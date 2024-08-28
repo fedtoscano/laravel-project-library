@@ -16,14 +16,19 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             //inserire i seeder qui
+            UserSeeder::class,
             CategorySeeder::class,
             EditorSeeder::class,
             AuthorSeeder::class,
             TranslatorSeeder::class,
             BookSeeder::class,
+            LoanSeeder::class,
 
             //tabelle pivot
             AuthorBookSeeder::class,
+            BookLoanSeeder::class,
+
+
         ]);
     }
 }
