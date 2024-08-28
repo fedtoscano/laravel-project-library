@@ -76,7 +76,7 @@ class BookSeeder extends Seeder
                 "cover_img"=>$faker->imageUrl(),
                 "isbn"=>$faker->randomNumber(9, true),
                 "price"=> $faker->randomFloat(2, 4.99, 49.99),
-                "pages"=> $faker->numberBetween(1, 5000),
+                "pages"=> $faker->numberBetween(1, 1500),
                 "is_available"=> $faker->boolean(80),
                 "state"=> $faker->randomElement($conditions),
             ];
