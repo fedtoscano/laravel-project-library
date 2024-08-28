@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
             AuthorSeeder::class,
             TranslatorSeeder::class,
             BookSeeder::class,
+
+            //tabelle pivot
+            AuthorBookSeeder::class,
         ]);
     }
 }
