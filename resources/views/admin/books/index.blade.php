@@ -48,7 +48,7 @@ Books List
                     <td>{{$book->isbn}}</td>
                     <td>{{$book->is_available ? "Yes" : "No"}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-sm">View</button>
+                        <a href="{{route('admin.books.show', $book->id)}}" class="btn btn-primary text-white">View</a>
                         <button type="button" class="btn btn-success btn-sm">Update</button>
                         <button type="button" class="btn btn-danger btn-sm">Delete</button>
                     </td>
@@ -56,6 +56,8 @@ Books List
                 @endforeach
             </tbody>
         </table>
+
+        {{-- {{ $books->links() }} --}}
         </div>
     </div>
 </div>
