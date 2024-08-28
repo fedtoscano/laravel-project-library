@@ -20,9 +20,9 @@ class BookSeeder extends Seeder
     {
         //
         // $authors_id = Author::all()->pluck("id");
-        // $editor_id = Editor::all()->pluck("id");
-        // $category_id = Category::all()->pluck("id");
-        // $translator_id = Translator::all()->pluck("id");
+        $editors_id = Editor::all()->pluck("id");
+        $categories_id = Category::all()->pluck("id");
+        $translators_id = Translator::all()->pluck("id");
 
         $conditions = [
             'new',            // Condizione nuova, mai letto, perfetto.
@@ -63,10 +63,12 @@ class BookSeeder extends Seeder
             'French', 'German', 'Italian', 'Chinese', 'Japanese', 'Russian', 'Portuguese', 'Arabic'
         ];
 
-
-
         for ($i=0; $i < 500; $i++) {
             $data = [
+                // "author_id"=>$faker->randomElements($authors_id, $count = rand(1, 3)),
+                "editor_id"=> $faker->randomElement($editors_id),
+                "category_id"=>$faker->randomElement($categories_id),
+                "translator_id"=>$faker->randomElement($translators_id),
                 "title"=> $faker->sentence(5, true),
                 "description"=>$faker->realText(500),
                 "genre" => $faker->randomElement($genres),
@@ -78,7 +80,6 @@ class BookSeeder extends Seeder
                 "is_available"=> $faker->boolean(80),
                 "state"=> $faker->randomElement($conditions),
             ];
-
             Book::create($data);
         }
 

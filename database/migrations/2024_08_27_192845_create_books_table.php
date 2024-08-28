@@ -19,15 +19,15 @@ return new class extends Migration
             $table->id();
 
             // Definisco le foreign keys:
-            $table->unsignedBigInteger('author_id')->nullable();
+            // $table->unsignedBigInteger('author_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('editor_id')->nullable();
             $table->unsignedBigInteger('translator_id')->nullable();
 
             // applico i vincoli:
-            $table->foreign('author_id')->references('id')->on('authors')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            // $table->foreign('author_id')->references('id')->on('authors')
+            //     ->nullOnDelete()
+            //     ->cascadeOnUpdate();
             $table->foreign('category_id')->references('id')->on('categories')
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
@@ -49,7 +49,6 @@ return new class extends Migration
             $table->boolean('is_available');
             $table->string('state')->nullable();
             $table->softDeletes();
-
             $table->timestamps();
         });
     }
