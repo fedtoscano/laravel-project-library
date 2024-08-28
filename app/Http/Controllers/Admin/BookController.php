@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\Book;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -13,6 +13,8 @@ class BookController extends Controller
     public function index()
     {
         //
+        $books=Book::all();
+        return view("admin.books.index", compact("books"));
     }
 
     /**
@@ -34,9 +36,10 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Book $book)
     {
         //
+        return view('admin.books.show', compact('book'));
     }
 
     /**

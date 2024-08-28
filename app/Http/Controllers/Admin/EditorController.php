@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Editor;
 use Illuminate\Http\Request;
 
 class EditorController extends Controller
@@ -13,6 +14,8 @@ class EditorController extends Controller
     public function index()
     {
         //
+        $editors=Editor::all();
+        return view("admin.editors.index", compact("editors"));
     }
 
     /**

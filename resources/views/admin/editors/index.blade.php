@@ -1,10 +1,10 @@
 @extends('admin.layouts.backoffice')
 
 @section('title')
-Books List
+Editors List
 @endsection
 
 @section('content')
-<h1>Qui c'è la lista dei libri</h1>
-@dump($books)
+<h1>Qui c'è la lista degli editori</h1>
+@dump($editors)
 @endsection

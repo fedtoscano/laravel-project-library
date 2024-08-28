@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Translator;
 use Illuminate\Http\Request;
 
 class TranslatorController extends Controller
@@ -13,6 +14,9 @@ class TranslatorController extends Controller
     public function index()
     {
         //
+
+        $translators=Translator::all();
+        return view("admin.translators.index", compact("translators"));
     }
 
     /**
