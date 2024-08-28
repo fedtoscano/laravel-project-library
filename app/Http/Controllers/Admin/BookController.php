@@ -12,7 +12,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        //considerare la paginazione se non si vedono icone giganti
         $books=Book::all();
         return view("admin.books.index", compact("books"));
     }
