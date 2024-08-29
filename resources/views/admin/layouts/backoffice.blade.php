@@ -29,21 +29,21 @@
         </div>
     </nav>
 
-    <div class="sidebar">
+    <div class="sidebar mr-4">
                 <!-- Split dropend button -->
-                <div class="btn-group dropend">
+                <div class="btn-group dropend mr-3">
                     <button type="button" class="btn btn-secondary">
-                    Books
+                        <a href="{{route('admin.books.index')}}">See all books</a>
                     </button>
                     <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="visually-hidden">Toggle Dropend</span>
                     </button>
                     <ul class="dropdown-menu">
-                    <!-- Dropdown menu links -->
-                        <li><a href="{{route('admin.books.index')}}">See all books</a></li>
-                        <li>Create New book</li>
+                        <!-- Dropdown menu links -->
+                        <li><a href="{{route('admin.books.create')}}">Insert new book</a></li>
                     </ul>
                 </div>
+
         <a href="{{ route('admin.books.index') }}">Books</a>
         <a href="{{ route('admin.authors.index') }}">Authors</a>
         <a href="{{ route('admin.categories.index') }}">Categories</a>

@@ -57,7 +57,7 @@ Books List
             </tbody>
         </table>
 
-        {{-- {{ $books->links() }} --}}
+        {{ $books->links() }}
         </div>
     </div>
 </div>
