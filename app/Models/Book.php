@@ -18,7 +18,21 @@ class Book extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description', 'genre', 'language', 'cover_img', 'isbn', 'price', 'pages', 'is_available', 'state'];
+    protected $fillable = [
+        'title',
+        'author_id',
+        'translator_id',
+        'category_id',
+        'editor_id',
+        'genre',
+        'language',
+        'cover_img',
+        'isbn',
+        'price',
+        'pages',
+        'is_available',
+        'state'
+    ];
 
     public function authors(){
         return $this->belongsToMany(Author::class);
