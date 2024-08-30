@@ -17,17 +17,12 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 250);
 
-            // Definisco le foreign keys:
-            // $table->unsignedBigInteger('author_id')->nullable();
+            $table->unsignedBigInteger('translator_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('editor_id')->nullable();
-            $table->unsignedBigInteger('translator_id')->nullable();
 
-            // applico i vincoli:
-            // $table->foreign('author_id')->references('id')->on('authors')
-            //     ->nullOnDelete()
-            //     ->cascadeOnUpdate();
             $table->foreign('category_id')->references('id')->on('categories')
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
@@ -38,9 +33,8 @@ return new class extends Migration
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->string('title', 250);
-            $table->text('description')->nullable();
             $table->string("genre", 40);
+            $table->text('description')->nullable();
             $table->string("language", 30);
             $table->string('cover_img')->nullable();
             $table->bigInteger('isbn')->unique();

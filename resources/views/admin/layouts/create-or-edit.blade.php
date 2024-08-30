@@ -19,6 +19,7 @@
             </ul>
         </div>
         @endif
+
         <div class="mb-3">
             <label for="book-name" class="form-label">Insert book's title</label>
             <input type="text" class="form-control" id="book-name" placeholder="insert title here..." name="title">
@@ -67,7 +68,7 @@
 
         <div class="mb-3">
             <label for="book-author" class="form-label">Insert book's condition</label>
-            <select name="condition" id="">
+            <select name="state" id="book-state">
                 @foreach ($conditions as $condition)
                     <option value="{{$condition}}">{{$condition}}</option>
                 @endforeach

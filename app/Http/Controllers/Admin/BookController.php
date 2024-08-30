@@ -8,6 +8,7 @@ use App\Models\Author;
 use App\Models\Category;
 use App\Models\Editor;
 use App\Models\Translator;
+use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -17,7 +18,6 @@ class BookController extends Controller
      */
     public function index()
     {
-        //considerare la paginazione se non si vedono icone giganti
         $books=Book::paginate(50);
         return view("admin.books.index", compact("books"));
     }
@@ -73,24 +73,26 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CreateBookRequest $request)
+    public function store(CreateBookRequest $request, Author $author)
     {
-        // dd($request);
-        // Valida e ottieni i dati dalla richiesta
         $validatedData = $request->validated();
 
-        $authorId = $validatedData['author_id'] ?? null;
-        unset($validatedData['author_id']);
-
-        // Crea un nuovo libro con i dati validati e salva nel database
-        $book = Book::create($validatedData);
-
-        // Associa il libro all'autore/i
-        if (isset($validatedData['author_id'])) {
-            $book->authors()->attach($validatedData['author_id']);
-        }
-
-        // Reindirizza alla pagina dell'index o dove necessario
+        $book = Book::create([
+            'title' => $validatedData['title'],
+            'translator_id' => $validatedData['translator_id'],
+            'category_id' => $validatedData['category_id'],
+            'editor_id' => $validatedData['editor_id'],
+            'genre' => $validatedData['genre'],
+            'description' => $validatedData['description'],
+            'language' => $validatedData['language'],
+            // 'cover_img' => $validatedData['cover_img'],
+            'isbn' => $validatedData['isbn'],
+            'price' => $validatedData['price'],
+            'pages' => $validatedData['pages'],
+            'is_available' => $validatedData['is_available'],
+            'state' => $validatedData['state'],
+        ]);
+        $book->authors()->attach($validatedData['author_id']);
         return redirect()->route('admin.books.show', compact('book'));
     }
 

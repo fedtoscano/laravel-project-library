@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('admin.home');
+    return view('welcome');
 });
 
 Auth::routes();

@@ -40,15 +40,4 @@ class CreateBookRequest extends FormRequest
         ];
     }
 
-    // "title" => null
-    // "author_id" => "7"
-    // "translator_id" => "8"
-    // "category_id" => "6"
-    // "editor_id" => "11"
-    // "genre" => "drama"
-    // "condition" => "good"
-    // "language" => "English"
-    // "pages" => "1231"
-    // "isbn" => "123123123"
-    // "price" => "232"
 }

@@ -25,6 +25,7 @@ class Book extends Model
         'category_id',
         'editor_id',
         'genre',
+        'description',
         'language',
         'cover_img',
         'isbn',
@@ -39,7 +40,7 @@ class Book extends Model
     }
 
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, "category_id");
     }
 
     public function editor(){
