@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ApiBookController extends Controller
 {
     public function index(){
-        $books = Book::paginate(50);
+        $books = Book::with('authors')->paginate(50);
 
         return response()->json(
             [
@@ -17,5 +17,14 @@ class ApiBookController extends Controller
                 'results'=> $books
             ]
             );
+    }
+
+    public function show(Book $book){
+        // $book -> loadMissing('editor', 'category', 'author', 'translator');
+
+        return response()->json([
+            'message' => 'success',
+            'results' => $book
+        ]);
     }
 }
