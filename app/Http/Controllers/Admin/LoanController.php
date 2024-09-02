@@ -14,7 +14,7 @@ class LoanController extends Controller
     public function index()
     {
         //
-        $loans=Loan::all();
+        $loans = Loan::paginate(50);
         return view("admin.loans.index", compact("loans"));
     }
 
@@ -37,9 +37,11 @@ class LoanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(String $id)
     {
-        //
+
+        $loan = Loan::findOrFail((int)$id);
+        return view('admin.loans.show', compact("loan"));
     }
 
     /**
