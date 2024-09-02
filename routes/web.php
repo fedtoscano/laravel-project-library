@@ -34,7 +34,11 @@ Route::middleware("auth")->name("admin.")->prefix("admin/")->group(function(){
     Route::resource('authors', AuthorController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('editors', EditorController::class);
-    Route::resource('loans', LoanController::class);
+
+    // Route::resource('loans', LoanController::class);
+    Route::get('loans', [LoanController::class, 'index'])->name('loans.index');
+    Route::get('loans/{id}', [LoanController::class, 'show'])->name('loans.show');
+
     Route::resource('translators', TranslatorController::class);
     Route::resource('users', UserController::class);
 });

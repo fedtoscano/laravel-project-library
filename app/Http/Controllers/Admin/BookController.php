@@ -92,6 +92,7 @@ class BookController extends Controller
             'is_available' => $validatedData['is_available'],
             'state' => $validatedData['state'],
         ]);
+
         $book->authors()->attach($validatedData['author_id']);
         return redirect()->route('admin.books.show', compact('book'));
     }
